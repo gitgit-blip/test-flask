@@ -47,6 +47,16 @@ except Exception as e:
 # ---------- สร้าง Flask application ----------
 app = Flask(__name__)
 
+CORS(
+    app,
+    resources={r"/api/*": {"origins": [
+        "http://localhost:8000",                             # ถ้าทดสอบด้วย python -m http.server
+        "http://127.0.0.1:8000",                             # บางครั้งใช้ 127.0.0.1
+        "https://test-flask-5e5pcj513-gitgitomes-projects.vercel.app"  # เปลี่ยนเป็นโดเมนจริงของคุณ
+    ]}},
+    supports_credentials=False
+)
+
 # ---------- Helper functions ----------
 
 def serialize_user(doc):
@@ -274,4 +284,5 @@ def health():
 if __name__ == "__main__":
     # debug=True สำหรับการพัฒนา (auto reload) — ปิดเมื่อ deploy production
     app.run(host="0.0.0.0", port=PORT, debug=True)
+
 
