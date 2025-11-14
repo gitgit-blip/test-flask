@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CRUD Demo — Flask + MongoDB (Vercel)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CRUD Demo — Flask + MongoDB</h1>
+    <p class="muted">ทดสอบ Create / Read / Update / Delete ผ่าน API บน Vercel</p>
+  </header>
+
+  <main>
+    <!-- Create -->
+    <section id="create-section" class="card">
+      <h2>Create — สร้างผู้ใช้</h2>
+      <div class="row">
+        <label>Custom ID (optional)</label>
+        <input id="create-id" placeholder="เช่น user001 (เว้นว่างให้ MongoDB สร้าง)" />
+      </div>
+      <div class="row">
+        <label>Name *</label>
+        <input id="create-name" placeholder="ชื่อ" />
+      </div>
+      <div class="row">
+        <label>Email *</label>
+        <input id="create-email" placeholder="email@example.com" />
+      </div>
+      <div class="row">
+        <label>Role</label>
+        <input id="create-role" placeholder="เช่น engineer" />
+      </div>
+      <div class="row actions">
+        <button id="btn-create">Create</button>
+        <span id="create-status" class="status"></span>
+      </div>
+    </section>
+
+    <!-- Read (list) -->
+    <section id="list-section" class="card">
+      <h2>Read — รายการผู้ใช้</h2>
+      <div class="row actions">
+        <button id="btn-refresh">Refresh List</button>
+        <span id="list-status" class="status"></span>
+      </div>
+      <div class="table-wrap">
+        <table id="users-table">
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Update -->
+    <section id="update-section" class="card">
+      <h2>Update — แก้ไขผู้ใช้</h2>
+      <div class="row">
+        <label>Target ID *</label>
+        <input id="update-id" placeholder="ใส่ ID ที่ต้องการแก้ (เช่น user001)" />
+      </div>
+      <div class="row">
+        <label>New Name</label>
+        <input id="update-name" placeholder="ชื่อใหม่ (เว้นว่างถ้าไม่เปลี่ยน)" />
+      </div>
+      <div class="row">
+        <label>New Email</label>
+        <input id="update-email" placeholder="email ใหม่ (เว้นว่างถ้าไม่เปลี่ยน)" />
+      </div>
+      <div class="row">
+        <label>New Role</label>
+        <input id="update-role" placeholder="role ใหม่ (เว้นว่างถ้าไม่เปลี่ยน)" />
+      </div>
+      <div class="row actions">
+        <button id="btn-update">Update</button>
+        <span id="update-status" class="status"></span>
+      </div>
+    </section>
+
+    <!-- Delete -->
+    <section id="delete-section" class="card">
+      <h2>Delete — ลบผู้ใช้</h2>
+      <div class="row">
+        <label>Target ID *</label>
+        <input id="delete-id" placeholder="ใส่ ID ที่ต้องการลบ" />
+      </div>
+      <div class="row actions">
+        <button id="btn-delete">Delete</button>
+        <span id="delete-status" class="status"></span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="muted">API endpoint: <code id="api-base"></code></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
