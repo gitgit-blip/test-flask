@@ -5,6 +5,7 @@
 
 import os
 from flask import Flask, jsonify, request
+from flask_cors import CORS  
 from pymongo import MongoClient, errors
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
@@ -273,3 +274,4 @@ def health():
 if __name__ == "__main__":
     # debug=True สำหรับการพัฒนา (auto reload) — ปิดเมื่อ deploy production
     app.run(host="0.0.0.0", port=PORT, debug=True)
+
