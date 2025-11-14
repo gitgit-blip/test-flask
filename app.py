@@ -46,17 +46,7 @@ except Exception as e:
 
 # ---------- สร้าง Flask application ----------
 app = Flask(__name__)
-
-CORS(
-    app,
-    resources={r"/api/*": {"origins": [
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-        "http://127.0.0.1:5500",   # <-- เพิ่มบรรทัดนี้ (VSCode Live Server)
-        "https://test-flask-5e5pcj513-gitgitomes-projects.vercel.app"
-    ]}},
-    supports_credentials=False
-)
+CORS(app)
 
 # ---------- Helper functions ----------
 
@@ -285,6 +275,7 @@ def health():
 if __name__ == "__main__":
     # debug=True สำหรับการพัฒนา (auto reload) — ปิดเมื่อ deploy production
     app.run(host="0.0.0.0", port=PORT, debug=True)
+
 
 
 
